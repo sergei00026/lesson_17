@@ -198,12 +198,28 @@
 							<div class="appointment-page__interaction">
 								<form action="get" class="appointment-page__form">
 									<div class="appointment-page__heading">Make an appointment</div>
-									<input type="text" class="appointment-page__name" placeholder="Name">
-									<input type="email" class="appointment-page__email" placeholder="Email">
-									<input type="tel" class="appointment-page__phone" placeholder="Phone Number">
-									<input type="text" class="appointment-page__select-services" placeholder="Select Service">
-									<textarea cols="30" rows="10" class="appointment-page__tellme" placeholder="Tell us about your puppers include his/her name"></textarea>
-									<button type="submit" class="appointment-page__btn btn_red">Make an Appointment</button>
+									<div class="appointment-page__box">
+										<input type="text" class="appointment-page__name" placeholder="Name">
+									</div>
+									<div class="appointment-page__box">
+										<input type="email" class="appointment-page__email" placeholder="Email"></div>
+									<div class="appointment-page__box">
+										<input type="tel" class="appointment-page__phone" placeholder="Phone Number">
+									</div>
+									<div class="appointment-page__box">
+										<select name="Selects" id="">
+											<option value="1">Select Service</option>
+											<option value="2">Service dog</option>
+											<option value="3">Service car</option>
+											<option value="4">Service man</option>
+										</select>
+									</div>
+									<div class="appointment-page__box appointment-page__box_textarea">
+										<textarea class="appointment-page__tellme" placeholder="Tell us about your puppers include his/her name"></textarea>
+									</div>
+									<div class="appointment-page__box">
+										<button type="submit" class="appointment-page__btn btn_red">Make an Appointment</button>
+									</div>
 								</form>
 							</div>
 							<div class="appointment-page__content">

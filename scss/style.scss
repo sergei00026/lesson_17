@@ -661,7 +661,6 @@ div[class*="__container"] {
 	// .appointment-page__interaction-box
 	&__interaction-box {
 		display: flex;
-		align-items: center;
 		flex-wrap: wrap;
 		row-gap: 100px;
 	}
@@ -691,17 +690,18 @@ div[class*="__container"] {
 	// .appointment-page__form
 	&__form {
 		filter: drop-shadow(0px 8px 16px rgba(38, 38, 38, 0.24)) drop-shadow(0px 16px 24px rgba(38, 38, 38, 0.2));
-		padding: 76px 58px;
+		padding: 11.87% 9.9%;
 		background: #5d62b5;
 		border-radius: 40px;
 		display: flex;
-		justify-content: center;
 		flex-wrap: wrap;
-		gap: 21px;
 		position: relative;
+		row-gap: 21px;
 		z-index: 3;
+		margin: 0px -10.5px;
 		& input,
-		textarea {
+		textarea,
+		select {
 			border: 2px solid #ffffff;
 			border-radius: 10px;
 			line-height: 150%;
@@ -710,7 +710,13 @@ div[class*="__container"] {
 			background: #5d62b5;
 			padding: 17px 24px;
 			font-size: 16px;
-			flex: 1 1 calc(50% - 48px);
+			width: 100%;
+			min-width: 180px;
+		}
+		& select {
+			height: 100%;
+			appearance: none;
+			cursor: pointer;
 		}
 		& input::placeholder,
 		textarea::placeholder {
@@ -719,8 +725,15 @@ div[class*="__container"] {
 			opacity: 0.8;
 			color: #ffffff;
 		}
-		& input {
-			max-width: 224px;
+		& textarea {
+			min-height: 180px;
+		}
+	}
+	&__box {
+		padding: 0px 10.5px;
+		flex: 1 1 50%;
+		&_textarea {
+			flex: 1 1 100%;
 		}
 	}
 	// .appointment-page__heading
@@ -761,6 +774,9 @@ div[class*="__container"] {
 		color: #fff;
 		font-weight: 900;
 		margin: 0px 0px 0px 111px;
+		align-self: center;
+		position: relative;
+		z-index: 10;
 		& > :not(:last-child) {
 			margin: 0px 0px 46px 0px;
 		}
@@ -798,6 +814,12 @@ div[class*="__container"] {
 		padding: 100px 8.5% 410px 8.5%;
 		background: #5d62b5;
 		border-radius: 40px;
+		@media (max-width: 732px) {
+			padding-bottom: 260px;
+		}
+		@media (max-width: 490px) {
+			padding-bottom: 190px;
+		}
 	}
 	// .gallery-page__title
 	&__title {
@@ -812,6 +834,8 @@ div[class*="__container"] {
 		display: flex;
 		margin: 0px -12px;
 		position: relative;
+		flex-wrap: wrap;
+		row-gap: 12px;
 		&::after {
 			content: "";
 			position: absolute;
@@ -820,6 +844,12 @@ div[class*="__container"] {
 			top: 41px;
 			left: 0;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+			@media (max-width: 900px) {
+				top: 60px;
+			}
+			@media (max-width: 418px) {
+				top: 120px;
+			}
 		}
 	}
 	// .gallery-page__link
@@ -832,11 +862,12 @@ div[class*="__container"] {
 		padding: 0px 12px;
 		transition: 0.3s;
 		text-align: center;
+		min-width: 170px;
+
 		&:hover::after {
 			content: "";
 			position: absolute;
 			width: 100%;
-
 			transition: 0.3s;
 			top: 40px;
 			left: 0;
@@ -852,7 +883,7 @@ div[class*="__container"] {
 			width: 6px;
 			height: 6px;
 			top: -2px;
-			right: 31px;
+			right: 5%;
 			background: #62b58f;
 			border-radius: 50%;
 		}
@@ -863,6 +894,15 @@ div[class*="__container"] {
 		top: 90px;
 		width: 100%;
 		padding: 0px 0px 480px 0px;
+		@media (max-width: 418px) {
+			top: 140px;
+		}
+		@media (max-width: 732px) {
+			padding: 0px 0px 280px 0px;
+		}
+		@media (max-width: 490px) {
+			padding: 0px 0px 180px 0px;
+		}
 	}
 	// .gallery-page__img
 	&__img {
@@ -882,6 +922,12 @@ div[class*="__container"] {
 .customers-page {
 	padding: 240px 0px 210px 0px;
 	position: relative;
+	@media (max-width: 900px) {
+		padding: 140px 0px 150px 0px;
+	}
+	@media (max-width: 450px) {
+		padding: 60px 0px 150px 0px;
+	}
 	&::before {
 		content: "";
 		background: url("../img/customers/Blob-1.svg") 0 0 no-repeat;
@@ -992,18 +1038,20 @@ div[class*="__container"] {
 		position: relative;
 		justify-content: space-between;
 		margin: 0 -12px;
+		flex-wrap: wrap-reverse;
 		&:not(:last-child) {
 			margin: 0px 0px 75px 0px;
 		}
 	}
 	&__title {
 		max-width: 411px;
-		flex: 0 0 50%;
+		flex: 1 0 50%;
 		align-self: flex-end;
 		padding: 0 12px;
+		min-width: 310px;
 	}
 	&__decor {
-		flex: 0 0 50%;
+		flex: 1 0 50%;
 		transform: translate(calc(54 * 100% / 498), calc(-80 * 100% / 315));
 		margin: -112px 0px 0px 0px;
 		padding: 0 12px;
@@ -1020,22 +1068,14 @@ div[class*="__container"] {
 		flex-wrap: wrap;
 		margin: 0 -12px;
 		row-gap: 24px;
+		justify-content: space-evenly;
 	}
 	// .impact-page__item
 	&__item {
 		padding: 0 12px;
-		flex: 1 1 25%;
-		position: relative;
+
 		display: flex;
 		align-items: flex-start;
-	}
-	&__item::before {
-		content: "";
-		position: absolute;
-		width: 76px;
-		height: 76px;
-		top: 0;
-		left: 0;
 	}
 	&__icon {
 		flex: 0 1 76px;
@@ -1106,12 +1146,14 @@ div[class*="__container"] {
 		row-gap: 20px;
 	}
 	&__colum {
+		flex: 1 1 20%;
 		&_notheading {
 			margin: 50px 0px 0px 0px !important;
 		}
 	}
 	// .footer__colum
 	&__colum {
+		flex: 1 1 20%;
 		& > :not(:last-child) {
 			margin: 0px 0px 28px 0px;
 		}
@@ -1128,6 +1170,10 @@ div[class*="__container"] {
 			justify-content: flex-start;
 		}
 		&_notheading {
+			min-width: 200px;
+		}
+		@media (max-width: 465px) {
+			flex: 1 1 40%;
 		}
 	}
 	// .footer__logo
@@ -1252,7 +1298,7 @@ div[class*="__container"] {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 10px 0px;
+		padding: 10px 15px !important;
 		flex-wrap: wrap;
 		row-gap: 20px;
 	}
@@ -1265,6 +1311,13 @@ div[class*="__container"] {
 }
 
 /* ===================================== */
+@media (max-width: 1050px) {
+	.appointment-page {
+		&__content {
+			margin: 0px 0px 0px 30px;
+		}
+	}
+}
 @media (max-width: 900px) {
 	.main-block-page {
 		padding: 280px 0px 112px 0px;
@@ -1288,7 +1341,14 @@ div[class*="__container"] {
 		padding: 50px 0px;
 	}
 	.appointment-page {
-		padding: 50px 0px 50px 0px;
+		padding: 50px 0px 100px 0px;
+	}
+	.appointment-page {
+		&__interaction {
+			&::after {
+				zoom: 0.8;
+			}
+		}
 	}
 }
 @media (max-width: 698px) {
@@ -1331,6 +1391,11 @@ div[class*="__container"] {
 	}
 	.video-page__heading {
 		font-size: 24px;
+	}
+	.appointment-page {
+		&__num {
+			font-size: 50px;
+		}
 	}
 }
 /* ===================================== */
